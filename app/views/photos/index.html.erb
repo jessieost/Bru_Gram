@@ -1,0 +1,17 @@
+<div>
+  <%= link_to 'Post a New BruGram', new_user_photo_path(current_user) %>
+</div>
+
+<% @photos.each do |photo| %>
+	
+	<div>
+		BruGram posted by: <%= photo.user.email %>
+	</div>
+
+	<%= link_to image_tag(photo.image), user_photo_path(current_user, photo) %>
+
+	<div>
+		<%= photo.caption %>
+	</div>
+
+	<%end%>

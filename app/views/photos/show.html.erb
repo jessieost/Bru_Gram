@@ -1,0 +1,21 @@
+
+<h3>BruGram posted by: <%= @photo.user.email %></h3>
+
+<div>
+  <img src="<%= @photo.image %>">
+</div>
+
+<div>
+  <%= @photo.caption %>
+</div>
+
+<% if @photo.user == current_user %>
+<div>
+  <%= link_to 'Edit BruGram', edit_user_photo_path(current_user, @photo) %>
+</div>
+
+<%end%>
+
+<div>
+  <%= link_to 'Back to Feed', user_photos_path(current_user) %>
+</div>

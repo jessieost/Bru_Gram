@@ -1,0 +1,22 @@
+<h1> Welcome to BruGram! </h1>
+
+<h3>
+  <%= link_to 'See my BruGrams', user_photos_path(current_user) %>
+</h3>
+
+<% @photos.each do |photo| %>
+	
+	<% if photo.public || photo.user == current_user %>
+	<div>
+		BruGram posted by: <%= photo.user.email %>
+	</div>
+
+	<%= link_to image_tag(photo.image), user_photo_path(current_user, photo) %>
+
+	<div>
+		<%= photo.caption %>
+	</div>
+
+	<%end%>
+
+	<%end%>
