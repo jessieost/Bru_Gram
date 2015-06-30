@@ -17,5 +17,10 @@
 <%end%>
 
 <div>
-  <%= link_to 'Back to Feed', user_photos_path(current_user) %>
+  <%= link_to 'Back to Feed', root_path %>
 </div>
+
+<%= render @photo.comments %>
+
+<%= render 'comments/form' %>
+
