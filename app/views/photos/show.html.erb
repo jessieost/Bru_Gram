@@ -1,8 +1,8 @@
-
+<div class="container-fluid">
 <h3>BruGram posted by: <%= @photo.user.email %></h3>
 
 <div>
-  <img src="<%= @photo.image %>">
+  <%= image_tag @photo.image.url(:medium) %>
 </div>
 
 <div>
@@ -24,3 +24,4 @@
 
 <%= render 'comments/form' %>
 
+</div>

@@ -1,14 +1,15 @@
 <%= simple_form_for [current_user, @photo] do |f| %>
-<div>
-	<%= f.input :image, placeholder: 'insert image URL here' %>
-</div>
 
 <div>
-	<%= f.input :public %>
+	<%= f.input :public, as: :boolean %>
 </div>
 
 <div>
 	<%= f.input :caption, placeholder: 'type your caption here' %>
+</div>
+
+<div>
+	<%= f.input :image, as: :file %>
 </div>
 
 <div>
