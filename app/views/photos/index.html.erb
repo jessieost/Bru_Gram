@@ -1,8 +1,8 @@
 <div class="container-fluid">
-<div>
-  <%= link_to 'Post a New BruGram', new_user_photo_path(current_user) %>
-</div>
-
+	<div>
+	  <%= link_to 'Post a New BruGram', new_user_photo_path(current_user) %>
+	</div>
+<!-- 
 <% @photos.each do |photo| %>
 	
 	<div>
@@ -16,4 +16,28 @@
 	</div>
 
 	<%end%>
+</div>
+ -->
+
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">BruGram
+                    <small>Your Lekker Photos</small>
+                </h1>
+            </div>
+        </div>
+
+<div class="row">
+		<% @photos.each do |photo| %>
+            <div class="col-md-3 portfolio-item">
+                <div>
+					<strong>BruGram posted by:</strong> <%= photo.user.email %>
+				</div>
+					<%= link_to image_tag(photo.image.url(:medium)), user_photo_path(current_user, photo) %>
+				<div>
+					<%= photo.caption %>
+				</div>
+			</div>
+		<%end%>
+</div>
 </div>

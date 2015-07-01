@@ -1,23 +1,93 @@
 
 <div class="container-fluid">
-<h3>
-  <%= link_to 'See my BruGrams', user_photos_path(current_user) %>
-</h3>
+	<!-- 
+			<% @photos.each do |photo| %>
+				<% if photo.public || photo.user == current_user %>
+				<div>
+					<strong>BruGram posted by:</strong> <%= photo.user.email %>
+				</div>
+				<%= link_to image_tag(photo.image.url(:medium)), user_photo_path(current_user, photo) %>
+				<div>
+					<%= photo.caption %>
+				</div>
+				<%end%>
+			<%end%> -->
+<!-- Page Content -->
+    <div class="container">
 
-<% @photos.each do |photo| %>
-	
-	<% if photo.public || photo.user == current_user %>
-	<div>
-		<strong>BruGram posted by:</strong> <%= photo.user.email %>
-	</div>
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">BruGram
+                    <small>For Your Lekker Photos</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
 
-	<%= link_to image_tag(photo.image.url(:medium)), user_photo_path(current_user, photo) %>
+        <!-- Projects Row -->
+       <div class="row">
+        <% @photos.each do |photo| %>
+        
+            <div class="col-md-3 portfolio-item">
+    			<% if photo.public || photo.user == current_user %>
+				<div>
+					<strong>BruGram posted by:</strong> <%= photo.user.email %>
+				</div>
+				<%= link_to image_tag(photo.image.url(:medium)), user_photo_path(current_user, photo) %>
+				<div>
+					<%= photo.caption %>
+				</div>
+				<%end%>            
+            </div>
+    
+        <%end %>
+        </div>
+        <!-- /.row -->
 
-	<div>
-		<%= photo.caption %>
-	</div>
+        <hr>
 
-	<%end%>
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
 
-	<%end%>
-</div>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; iXperience S2 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->

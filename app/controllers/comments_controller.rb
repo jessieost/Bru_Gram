@@ -17,7 +17,8 @@ class CommentsController < ApplicationController
 
 	def edit
 		@photo = Photo.find params[:photo_id]
-		@comment = Comment.find params[:id]		
+		@comment = Comment.find params[:id]	
+
 	end
 
 	def update
@@ -29,6 +30,7 @@ class CommentsController < ApplicationController
 			render 'edit'
 		end
 	end
+	
 	private
 		def comment_params
 			params.require(:comment).permit(:body)
